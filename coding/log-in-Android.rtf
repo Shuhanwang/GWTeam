@@ -1,0 +1,106 @@
+{\rtf1\ansi\ansicpg936\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset134 STHeitiSC-Light;}
+{\colortbl;\red255\green255\blue255;\red17\green142\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl-380\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 public class LoginActivity extends AppCompatActivity \{\
+\
+    public  static final String HOST="{\field{\*\fldinst{HYPERLINK "192.168.1.102"}}{\fldrslt \cf2 192.168.1.102}}";\
+    public  static final int  PORT=5224;\
+    public static final String SERVICENAME ="{\field{\*\fldinst{HYPERLINK "http://chenxinrong.com"}}{\fldrslt \cf2 chenxinrong.com}}";\
+\
+    private EditText etUserName, etPassWord;\
+    private Button btnLogin;\
+    private TextView tv_register;\
+    private ServiceManager serviceManager;\
+\
+    @Override\
+    protected void onCreate(Bundle savedInstanceState) \{\
+        super.onCreate(savedInstanceState);\
+        setContentView(R.layout.activity_login);\
+        initView();\
+        initListenter();\
+        serviceManager = new ServiceManager(LoginActivity.this);\
+        serviceManager.setNotificationIcon(R.drawable.notification);\
+        serviceManager.startService();\
+    \}\
+\
+    private void initListenter() \{\
+        btnLogin.setOnClickListener(new View.OnClickListener() \{\
+            @Override\
+            public void onClick(View v) \{\
+                final String userName = etUserName.getText().toString();\
+                final String passWord = etPassWord.getText().toString();\
+   \
+                if (TextUtils.isEmpty(userName)) \{\
+                    etUserName.setError(\'93
+\f1\fs28 username cannot be empty
+\f0\fs26 \'94);\
+                \}\
+                                if (TextUtils.isEmpty(passWord)) \{\
+                    etPassWord.setError(\'93
+\f1\fs28 password cannot be empty
+\f0\fs26 \'94);\
+                \}\
+\
+                ThreadUtils.runInThread(new Runnable() \{\
+                    @Override\
+                    public void run() \{\
+                        try \{\
+                            \
+                            ConnectionConfiguration config = new ConnectionConfiguration(HOST, PORT, SERVICENAME);\
+                           \
+                            config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);//
+\f1\fs28 \'c3\'f7\'ce\'c4\'b4\'ab\'ca\'e4
+\f0\fs26 \
+                            config.setDebuggerEnabled(true);                            config.setSendPresence(false);\
+                            XMPPConnection conn = new XMPPConnection(config);\
+                           \
+                            conn.connect();\
+                            conn.login(userName, passWord);\
+                                                        IMService.mCurAccout = userName + "@" + LoginActivity.SERVICENAME;\
+                            IMService.mCurUserName =userName;\
+                            \
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);\
+                            startActivity(intent);\
+                            serviceManager.setAlias(IMService.mCurAccout);\
+//                            Bitmap bitmap = MyFragment.getUserImage(IMService.mCurAccout);\
+//                            IMService.myBitmap=bitmap;\
+                          \
+                            Intent service = new Intent(getApplicationContext(), IMService.class);\
+                            startService(service);\
+                            ToastUtils.showToastsafe(LoginActivity.this, \'93
+\f1\fs28 Log in successfully 
+\f0\fs26 \'94);\
+                        \
+                            IMService.conn = conn;\
+                            finish();\
+                        \} catch (XMPPException e) \{\
+                            e.printStackTrace();\
+                            ToastUtils.showToastsafe(LoginActivity.this, \'93
+\f1\fs28 log in failed
+\f0\fs26 \'94);\
+                        \}\
+                    \}\
+                \});\
+            \}\
+        \});\
+        tv_register.setOnClickListener(new View.OnClickListener() \{\
+            @Override\
+            public void onClick(View v) \{\
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);\
+                startActivity(intent);\
+            \}\
+        \});\
+    \}\
+\
+    private void initView() \{\
+        etUserName = (EditText) findViewById({\field{\*\fldinst{HYPERLINK "R.id.et_username"}}{\fldrslt \cf2 R.id.et_username}});\
+        etPassWord = (EditText) findViewById({\field{\*\fldinst{HYPERLINK "R.id.et_password"}}{\fldrslt \cf2 R.id.et_password}});\
+        btnLogin = (Button) findViewById({\field{\*\fldinst{HYPERLINK "R.id.btn_login"}}{\fldrslt \cf2 R.id.btn_login}});\
+        tv_register = (TextView) findViewById({\field{\*\fldinst{HYPERLINK "R.id.tv_register"}}{\fldrslt \cf2 R.id.tv_register}});\
+    \}\
+\
+\
+\}}
