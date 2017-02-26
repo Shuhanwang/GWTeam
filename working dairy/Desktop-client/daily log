@@ -1,20 +1,19 @@
 2017.1.23
-Today our group arranged the first meeting for planning the project in the next two months. During the first two weeks, our main task is to illustrate the detailed functions aiming to achieve and be prepared for the initial report as well as the presentation. After finding enough materials, I need to start to learn Java, which might not be so difficult since it is similar to C++.
+Today our group arranged the first meeting for planning the project in the next two months. 
 
 2017.1.24
 My friend recommend me a very useful book about Java programming written in Chinese. There are lots of practical examples which are worth reading.
 
 2017.1.25
-Today I talked with Zhiyi and decided the development platform. Our main aim is to develop a desktop application based on Java design and similar to the web QQ. Tomorrow I need to learn about an example about the chatroom from the book Java Design.
+Decided the development platform. Our main aim is to develop a desktop application based on Java design and similar to the web QQ. 
 
 2017.1.26
 The example about the chatroom service is a little bit confusing. I have downloaded the eclipse and build the Java environment to test the code on the textbook trying to get better understanding.
 
 2017.1.27
-Learning more definitions by google is still not that helpful for understanding the code of the example. I decided to give up that and found more examples from github. Tomorrow I need to discuss with my tutor.
-
+Learning more definitions by google is still not that helpful for understanding the code of the example. I decided to give up that and found more examples from github. 
 2017.1.30
-In today’s meeting, we first discussed about the main content of the initial report. Everyone will need to write about the functions as well as the relative solutions, and the difficulties that might encounter. We also specified the work plan and the timetable which indicated lacking of time. Tomorrow I will discuss with Zhiyi about the details of the desktop part.
+In today’s meeting, we first discussed about the main content of the initial report. We also specified the work plan and the timetable which indicated lacking of time.
 
 2017.1.31
 Today despite the normal exercise of Java, the interface and the basic functions of the desktop part were determined.
@@ -35,7 +34,7 @@ On today’s meeting we mainly prepare the presentation and finished the ppt aft
 Find an interesting resource on Github. Final check about the initial report as well as the ppt. Get ready of the presentation.
 
 2017.2.8
-Finished the presentation today. I think Dr. Tratt encourages us to think more about the peer assessment because he thought the task distribution needs to be more detailed. Tomorrow I will discuss the detailed functions that the application should be accomplished.
+Finished the presentation today. I think Dr. Tratt encourages us to think more about the peer assessment because he thought the task distribution needs to be more detailed. 
 
 2017.2.9
 After the discussion with Zhiyi, we determined the components and the more detailed functions. But all of these description needs to be written into a document to follow and modify during the development.
