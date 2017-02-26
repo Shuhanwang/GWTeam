@@ -1,0 +1,27 @@
+2017/2/13
+Today, I started to design and write the processes of the desktop client application.
+
+2017/2/14
+Designed login interface and determined what components need and what functions it achieved.
+
+2017/2/15
+I download the eclipse and build the JAVA environment for running.
+Anything is all right.
+
+2017/2/16
+I build the project and start to write the code of user interface. The class, swing components--JFrame, JPanel, JLabel, JTextField, JButton...
+The problem:layout, all labels are layout in order unless it exceed the size of main frame.
+
+2017/2/17
+Debug...
+Problem: there is no events on every button, I should add the actions for these buttons.
+
+2017/2/20
+Added some events for the buttons like login, forgotten and register.
+Problem: when users click the login button, the connection with server should be started that means TCP protocol should be established.
+
+2017/2/21
+I tested and finished the code of login interface, including the texts of username and password, some buttons.
+
+2017/2/22
+I started to layout for the components on interface.
