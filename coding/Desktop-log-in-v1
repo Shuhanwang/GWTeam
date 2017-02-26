@@ -1,0 +1,64 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Chat extends Frame implements 
+
+ActionListener{
+
+JFrame frame= new JFrame();
+JLabel BigTitle = new JLabel();
+JTextField num1,num2;
+JLabel label1,label2;	
+
+public Chat(){
+ImageIcon figure1=new ImageIcon("  ");  
+frame.setTitle("Welcome to HiChat!");
+label1 =new JLabel("Username");
+num1 = new JTextField(17);
+num1.setBounds(10, 50, 10, 10);
+label2=new JLabel("Password    ");
+num2 = new JTextField(17);
+frame.add(text);
+text.add(label1);               
+text.add(num1);
+text.add(label2);
+text.add(num2);
+
+JButton Button = new JButton("Login");
+JButton Button1 = new JButton("Forgetton?");
+JButton Button2 = new JButton("Register!");
+
+text.add(Button);
+text.add(Button1);
+text.add(Button2);
+
+Button.addActionListener(this);		
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setBounds(500,220,350,250);
+frame.setVisible(true);
+}
+
+
+public void actionPerformed(ActionEvent ex){
+
+int UserName = Integer.parseInt(num1.getText());//input username
+int PassWd = Integer.parseInt(num2.getText());
+int a=123456;
+int b=123456;
+
+if(UserName==a&&PassWd==b){
+BigTitle.setText("Login successfully");
+}
+
+ else{
+ BigTitle.setText("Wrong! Try again!");
+ } 
+}
+
+
+public static void main(String[] args){
+
+Chat myframe = new Chat();
+}
+}
