@@ -1,0 +1,69 @@
+package server;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.JLabel;
+
+public class ui extends JFrame{
+public void CreateJFrame(String title) throws UnknownHostException{
+JFrame jf=new JFrame(title);
+Container container=jf.getContentPane();
+container.setLayout(new GridLayout(2,1,10,10));
+JPanel p1=new JPanel(new GridLayout(5,1));
+JPanel p2=new JPanel(new GridLayout(2,2));
+JPanel p3=new JPanel(new GridLayout(1,2,10,10));
+JPanel p4=new JPanel(new GridLayout(1,2,10,10));
+JLabel l1=new JLabel("server statement:",JLabel.CENTER);
+p1.add(l1);
+p1.add(new JTextField("on"));
+JLabel l2=new JLabel("server IP:",JLabel.CENTER);
+p1.add(l2);
+JTextField ipDisplay = new JTextField("0");
+try
+{ 
+System.out.println("IP = " + InetAddress.getLocalHost());
+} catch (UnknownHostException e)
+{ 
+e.printStackTrace();
+}
+p1.add(ipDisplay);
+JLabel l3=new JLabel("port:",JLabel.CENTER);
+p1.add(l3);
+p1.add(new JTextField("8888"));
+JLabel l4=new JLabel("online users:",JLabel.CENTER);
+p1.add(l4);
+p1.add(new JTextField("0"));
+JLabel l5=new JLabel("max payload:",JLabel.CENTER);
+p1.add(l5);
+p1.add(new JTextField("100"));
+JLabel l6=new JLabel("server log",JLabel.CENTER);
+p2.add(l6);
+p2.add(new JTextField(""));
+p3.add(new JButton("switch on"));
+p3.add(new JButton("switch off"));
+p4.add(new JButton("save"));
+p4.add(new JButton("clear"));
+container.add(p1);
+container.add(p2);
+container.add(p3);
+container.add(p4);
+container.setBackground(Color.white);
+jf.setVisible(true);
+jf.setSize(1000, 600);
+jf.setBounds(0,0,1000,600);
+jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+}
+
+public static void main(String args[]) throws UnknownHostException{
+new ui().CreateJFrame("SERVER");
+}
+}
