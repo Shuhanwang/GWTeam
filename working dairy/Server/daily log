@@ -1,0 +1,77 @@
+ 2017.1.23
+The first meeting: During the first two weeks, our main task is to illustrate the detailed functions aiming to achieve and be prepared for the initial report as well as the presentation.
+
+2017.1.24
+By using online materials, we start to learn more about Java programming. On github, there are lots of practical examples.
+
+2017.1.25
+Today I talked with Junchao and decided the development platform. Tomorrow I need to learn about an example about the chatroom from the book Java Design.
+
+2017.1.26
+Today our group have downloaded the eclipse and build the Java environment to test the code on the textbook trying to get better understanding.
+
+2017.1.27
+Tomorrow I need to discuss with my tutor about the use of Github.
+
+2017.1.30
+Today,we specified the work plan and the timetable which indicated lacking of time. Tomorrow I will discuss with Junchao about the details of the server part.
+
+2017.1.31
+Today we plan to make a simple interface with three parts to indicate the server information, the login and log out information, as well as the chat history.
+
+2017.2.1
+Focus on the report.
+
+2017.2.2
+Despite the work on the initial report, we start to worried about how toestablish the connection with two client using socket connection.
+
+2017.2.3
+Today I have finished the report and we had a group meeting about the presentation. This weekend we will focus on the presentation part and get ready before next Monday.
+
+2017.2.6
+Today¡¯s main task is to prepare the presentation and finished the ppt after the discussion.
+
+2017.2.7
+Find an interesting resource on Github. Final check about the initial report as well as the ppt. Get ready of the presentation.
+
+2017.2.8
+Tomorrow we will start to do the interface design and coding. At present we could only design a simple interface as a picture showed we found online.
+
+2017.2.9
+After the discussion with Junchao, we determined the components and the more detailed functions. 
+
+2017.2.10
+Start to think about more specific description about the interfaces. Need to be settled down during the weekends.
+
+2017.2.13
+The third meeting we talked about our work plan and the progress of the three parts. Obviously, the development of server part is kind of slowing down. 
+
+2017.2.14
+Today¡¯s main task is to establish the basic layer of interface by learning two program from my colleagues.
+
+2017.2.15
+Still working on the interface. Need to search for more information about the design.
+
+2017.2.16
+Talked with Junchao about the programming about the interface part. We decided to start programming on weekends or next week.
+
+2017.2.17
+Talked with my colleagues about our design and made more modification. Learn about the Java programming example.
+
+2017.2.20
+During today¡¯s meeting we talked about the whole progress of the project.
+
+2017.2.21
+Start the programming of the interface and finish the basic content. Encountered lots of mistakes. Need to fix these tomorrow.
+
+2017.2.22
+Talked with Junchao about the problems that encounteredyesterday and solved most of them. 
+
+2017.2.23
+Today¡¯s main task is to review the work and fix bugs. Hope on weekend we could finish this part.
+
+2017.2.24
+The basic interface is done. Start to search for information of the connection part on weekend.
+
+2017.2.27
+No group meeting today. Discuss and start programming with Junchao about the connection part.
