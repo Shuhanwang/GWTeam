@@ -1,4 +1,4 @@
-package server;
+package ServerDesign;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -16,21 +16,24 @@ public class ui extends JFrame{
   public void CreateJFrame(String title){
 	  JFrame jf=new JFrame(title);
 	  Container container=jf.getContentPane();
-	  container.setLayout(new GridLayout(2,1,10,10));
-	  JPanel p1=new JPanel(new GridLayout(5,1));
-	  JPanel p2=new JPanel(new GridLayout(2,1));
-      JPanel p3 = new JPanel(new GridLayout(1, 2, 10, 10));
-      JPanel p4 = new JPanel(new GridLayout(2, 1, 10, 10));
+	  container.setLayout(new GridLayout(1,2,10,10));
+
+	  Panel p1=new Panel();
+	  p1=new Panel(new GridLayout(2,1));
+	  JPanel p2=new JPanel(new GridLayout(1,1));
 	  //搭建框架
       //面板1内容：server statement
+	  Panel p4=new Panel();
+	  p4=new Panel(new GridLayout(5,1));
+	  Panel p5=new Panel();
 	  JLabel l1=new JLabel("server statement:",JLabel.LEFT);
-	  p1.add(l1);
+	  p4.add(l1);
 	  TextField t1;
-	  t1=new TextField(10);
-	  p1.add(t1);
+	  t1=new TextField("",10);
+	  p4.add(t1);
 	  //server ip:
 	  JLabel l2=new JLabel("server IP:",JLabel.LEFT);
-	  p1.add(l2);
+	  p4.add(l2);
 	  JTextField t2 = null;
 		try {
 			t2 = new JTextField(""+InetAddress.getLocalHost());
@@ -38,30 +41,26 @@ public class ui extends JFrame{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	  p1.add(t2);
+	  p4.add(t2);
 	  //port:
 	  JLabel l3=new JLabel("port:",JLabel.LEFT);
-	  p1.add(l3);
-	  p1.add(new JTextField("port"));
+	  p4.add(l3);
+	  p4.add(new JTextField("port",JTextField.LEFT));
 	  //online users:
 	  JLabel l4=new JLabel("online users:",JLabel.LEFT);
-	  p1.add(l4);
-	  p1.add(new JTextField("online users"));
+	  p4.add(l4);
+	  p4.add(new JTextField("online users",JTextField.LEFT));
 	  //max payload:
 	  JLabel l5=new JLabel("max payload:",JLabel.LEFT);
-	  p1.add(l5);
-	  p1.add(new JTextField("max payload"));
-	  //面板2内容：
-	  JLabel l6=new JLabel("server log",JLabel.CENTER);
-	  p2.add(l6);
-	  p2.add(new JTextField("server log"));
-	  //面板3内容：
+	  p4.add(l5);
+	  p4.add(new JTextField("max payload",JTextField.LEFT));	  
+	  p1.add(p4);
+
+	  //添加两个按钮：
 	  JButton b1=new JButton("switch on");
 	  JButton b2=new JButton("switch off");
 	  b1.setBounds(100,40,100,40);
 	  b2.setBounds(100,100,120,35);
-	  p3.add(b1);
-	  p3.add(b2);
 	  b1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if((JButton)e.getSource()==b1){
@@ -86,14 +85,29 @@ public class ui extends JFrame{
 				}
 			}
 		});
-	  //面板4内容：
-	  p4.add(new JButton("save"));
-	  p4.add(new JButton("clear"));
+		p5.add(b1);
+		p5.add(b2);
+	  p1.add(p5);
+
+
+		//面板2:
+		Panel p3=new Panel();
+		JLabel l6=new JLabel("server log",JLabel.LEFT);
+		p3.add(l6);
+		JTextArea t6=new JTextArea(10,40);
+		p3.add(t6);
+		p3.add(new JButton("Save"));
+		p3.add(new JButton("Clear"));
+		p2.add(p3);
+
+
+
+	 
+
       //将4个面板加入容器
 	  container.add(p1);
 	  container.add(p2);
-	  container.add(p3);
-	  container.add(p4);
+
 	  container.setBackground(Color.white);
 	  jf.setVisible(true);
 	  jf.setSize(1000, 600);
@@ -105,3 +119,5 @@ public class ui extends JFrame{
   }
   
 }
+
+ 
