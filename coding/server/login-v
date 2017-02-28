@@ -33,7 +33,7 @@ public class ui extends JFrame{
 	  p1.add(l2);
 	  JTextField t2 = null;
 		try {
-			t2 = new JTextField("IP="+InetAddress.getLocalHost());
+			t2 = new JTextField(""+InetAddress.getLocalHost());
 		} catch (UnknownHostException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
