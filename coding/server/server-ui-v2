@@ -1,4 +1,4 @@
-package servercoding;
+package server;
 
 
 import java.awt.BorderLayout;
