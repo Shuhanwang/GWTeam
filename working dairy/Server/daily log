@@ -25,6 +25,7 @@ Focus on the report.
 2017.2.2
 Despite the work on the initial report, we start to worried about how toestablish the connection with two client using socket connection.
 
+
 2017.2.3
 Today I have finished the report and we had a group meeting about the presentation. This weekend we will focus on the presentation part and get ready before next Monday.
 
@@ -75,3 +76,6 @@ The basic interface is done. Start to search for information of the connection p
 
 2017.2.27
 No group meeting today. Discuss and start programming with Junchao about the connection part.
+
+2017.2.28
+Finish the design of the switch of our server. In addition, add the function for getting local IP address.
