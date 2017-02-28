@@ -1,8 +1,14 @@
-package server;
+package servercoding;
 
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -12,30 +18,39 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class ui extends JFrame{
 public void CreateJFrame(String title) throws UnknownHostException{
 JFrame jf=new JFrame(title);
 Container container=jf.getContentPane();
-container.setLayout(new GridLayout(2,1,10,10));
+container.setLayout(new GridLayout(2,1,10,0));
 JPanel p1=new JPanel(new GridLayout(5,1));
-JPanel p2=new JPanel(new GridLayout(2,2));
-JPanel p3=new JPanel(new GridLayout(1,2,10,10));
-JPanel p4=new JPanel(new GridLayout(1,2,10,10));
+JPanel p2=new JPanel();
+BorderLayout lay2=new BorderLayout();
+p2.setLayout(lay2);
+JPanel p3=new JPanel();
+FlowLayout lay3=new FlowLayout(FlowLayout.CENTER,100,10);
+p3.setLayout(lay3);
+JPanel p4=new JPanel();
+FlowLayout lay4=new FlowLayout(FlowLayout.CENTER,100,10);
+p4.setLayout(lay4);
 JLabel l1=new JLabel("server statement:",JLabel.CENTER);
 p1.add(l1);
-p1.add(new JTextField("on"));
+TextField t1;
+t1=new TextField("",10);
+p1.add(t1);
+
 JLabel l2=new JLabel("server IP:",JLabel.CENTER);
 p1.add(l2);
-JTextField ipDisplay = new JTextField("0");
-try
-{ 
-System.out.println("IP = " + InetAddress.getLocalHost());
-} catch (UnknownHostException e)
-{ 
-e.printStackTrace();
-}
-p1.add(ipDisplay);
+JTextField t2 = null;
+	try {
+		t2 = new JTextField(""+InetAddress.getLocalHost());
+	} catch (UnknownHostException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+p1.add(t2);
 JLabel l3=new JLabel("port:",JLabel.CENTER);
 p1.add(l3);
 p1.add(new JTextField("8888"));
@@ -46,10 +61,40 @@ JLabel l5=new JLabel("max payload:",JLabel.CENTER);
 p1.add(l5);
 p1.add(new JTextField("100"));
 JLabel l6=new JLabel("server log",JLabel.CENTER);
-p2.add(l6);
+p2.add(l6,BorderLayout.NORTH);
 p2.add(new JTextField(""));
-p3.add(new JButton("switch on"));
-p3.add(new JButton("switch off"));
+
+JButton b1=new JButton("switch on");
+JButton b2=new JButton("switch off");
+b1.setBounds(100,40,100,40);
+b2.setBounds(100,100,120,35);
+b1.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			if((JButton)e.getSource()==b1){
+				String input1="ON";
+				if("ON".equals(t1.getText())){
+					JOptionPane.showMessageDialog(null, "The server is working!", "Warning", JOptionPane.ERROR_MESSAGE);
+				}else{
+					t1.setText(input1);
+				}
+			}
+		}
+	});
+	b2.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			if((JButton)e.getSource()==b2){
+				String input1="OFF";
+				if("OFF".equals(t1.getText())){
+					JOptionPane.showMessageDialog(null, "The server is off!", "Warning", JOptionPane.ERROR_MESSAGE);
+				}else{
+					t1.setText(input1);
+				}
+			}
+		}
+	});
+	p3.add(b1);
+	p3.add(b2);
+
 p4.add(new JButton("save"));
 p4.add(new JButton("clear"));
 container.add(p1);
