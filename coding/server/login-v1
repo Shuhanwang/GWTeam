@@ -101,6 +101,8 @@ container.add(p1);
 container.add(p2);
 container.add(p3);
 container.add(p4);
+p3.setBackground(Color.white);
+p4.setBackground(Color.white);
 container.setBackground(Color.white);
 jf.setVisible(true);
 jf.setSize(1000, 600);
