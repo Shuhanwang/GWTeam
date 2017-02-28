@@ -1,0 +1,107 @@
+package server;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import javax.swing.*;
+
+public class ui extends JFrame{
+  public void CreateJFrame(String title){
+	  JFrame jf=new JFrame(title);
+	  Container container=jf.getContentPane();
+	  container.setLayout(new GridLayout(2,1,10,10));
+	  JPanel p1=new JPanel(new GridLayout(5,1));
+	  JPanel p2=new JPanel(new GridLayout(2,1));
+      JPanel p3 = new JPanel(new GridLayout(1, 2, 10, 10));
+      JPanel p4 = new JPanel(new GridLayout(2, 1, 10, 10));
+	  //搭建框架
+      //面板1内容：server statement
+	  JLabel l1=new JLabel("server statement:",JLabel.LEFT);
+	  p1.add(l1);
+	  TextField t1;
+	  t1=new TextField(10);
+	  p1.add(t1);
+	  //server ip:
+	  JLabel l2=new JLabel("server IP:",JLabel.LEFT);
+	  p1.add(l2);
+	  JTextField t2 = null;
+		try {
+			t2 = new JTextField("IP="+InetAddress.getLocalHost());
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	  p1.add(t2);
+	  //port:
+	  JLabel l3=new JLabel("port:",JLabel.LEFT);
+	  p1.add(l3);
+	  p1.add(new JTextField("port"));
+	  //online users:
+	  JLabel l4=new JLabel("online users:",JLabel.LEFT);
+	  p1.add(l4);
+	  p1.add(new JTextField("online users"));
+	  //max payload:
+	  JLabel l5=new JLabel("max payload:",JLabel.LEFT);
+	  p1.add(l5);
+	  p1.add(new JTextField("max payload"));
+	  //面板2内容：
+	  JLabel l6=new JLabel("server log",JLabel.CENTER);
+	  p2.add(l6);
+	  p2.add(new JTextField("server log"));
+	  //面板3内容：
+	  JButton b1=new JButton("switch on");
+	  JButton b2=new JButton("switch off");
+	  b1.setBounds(100,40,100,40);
+	  b2.setBounds(100,100,120,35);
+	  p3.add(b1);
+	  p3.add(b2);
+	  b1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if((JButton)e.getSource()==b1){
+					String input1="ON";
+					if("ON".equals(t1.getText())){
+						JOptionPane.showMessageDialog(null, "The server is working!", "Warning", JOptionPane.ERROR_MESSAGE);
+					}else{
+						t1.setText(input1);
+					}
+				}
+			}
+		});
+		b2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				if((JButton)e.getSource()==b2){
+					String input1="OFF";
+					if("OFF".equals(t1.getText())){
+						JOptionPane.showMessageDialog(null, "The server is off!", "Warning", JOptionPane.ERROR_MESSAGE);
+					}else{
+						t1.setText(input1);
+					}
+				}
+			}
+		});
+	  //面板4内容：
+	  p4.add(new JButton("save"));
+	  p4.add(new JButton("clear"));
+      //将4个面板加入容器
+	  container.add(p1);
+	  container.add(p2);
+	  container.add(p3);
+	  container.add(p4);
+	  container.setBackground(Color.white);
+	  jf.setVisible(true);
+	  jf.setSize(1000, 600);
+	  jf.setBounds(0,0,1000,600);
+	  jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  }
+  public static void main(String args[]){
+	  new ui().CreateJFrame("SERVER");
+  }
+  
+}
