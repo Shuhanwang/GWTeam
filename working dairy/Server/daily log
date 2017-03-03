@@ -16,15 +16,13 @@ Tomorrow I need to discuss with my tutor about the use of Github.
 2017.1.30
 Today,we specified the work plan and the timetable which indicated lacking of time. Tomorrow I will discuss with Junchao about the details of the server part.
 
-2017.1.31
-Today we plan to make a simple interface with three parts to indicate the server information, the login and log out information, as well as the chat history.
+2017.1.31Today we plan to make a simple interface with three parts to indicate the server information, the login and log out information, as well as the chat history.
 
 2017.2.1
 Focus on the report.
 
 2017.2.2
 Despite the work on the initial report, we start to worried about how toestablish the connection with two client using socket connection.
-
 
 2017.2.3
 Today I have finished the report and we had a group meeting about the presentation. This weekend we will focus on the presentation part and get ready before next Monday.
@@ -79,3 +77,12 @@ No group meeting today. Discuss and start programming with Junchao about the con
 
 2017.2.28
 Finish the design of the switch of our server. In addition, add the function for getting local IP address.
+
+2017.3.1
+Developed the design of the server to display logs on it.
+
+2017.3.2
+Worked out the design of socket based on TCP.
+
+2017.3.3
+Accomplished the connections between server and client on console.
