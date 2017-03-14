@@ -1,0 +1,13 @@
+2.27 we design and collect information about client application. Download the eclipse and set up JAVA environment for running client program.
+2.28 Design client UI interface and components, there are some problem about interface.
+3.1 Build project and write the code of client. Design UI interface.UI interface can’t running.
+3.2  Test code and debug, The program code can’t running, there are some trouble with debug.
+3.3 UI interface is achieved. We debug the code of client and initiate a chat.
+3.6 Debug the code and open up a connection, add text transfer function.
+3.7 coordinate the two separate clients, there are some problem of the code about text transfer from client to server.
+3.8 have a group meeting, discuss and the problem about client server connection. And improve the UI interface.
+
+
+3.9 check receive and transfer message between clients. debug and improve java code, there is some problem with code debugging.
+3.10 have a group meeting, deal with the problem of client connection, search for some bibliography and information for debug java code on eclipse.
+
