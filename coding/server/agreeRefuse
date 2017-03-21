@@ -1,0 +1,32 @@
+package common.message;
+
+import java.io.Serializable;
+
+public class agreeRefuse implements Serializable
+{
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+	public int					sign				= 0;	// agree or disagree
+	public String				myqqNum				= "";
+	public String				qq					= "";
+	public String				refuseReason		= "";
+
+	public agreeRefuse(int sign, String myqqNum, String qq, String refuseReason)
+	{
+		super();
+		this.sign = sign;
+		this.myqqNum = myqqNum;
+		this.qq = qq;
+		this.refuseReason = refuseReason;
+	}
+
+	public agreeRefuse(agreeRefuse agreement)
+	{
+		this.sign = agreement.sign;
+		this.myqqNum = agreement.myqqNum;
+		this.qq = agreement.qq;
+		this.refuseReason = agreement.refuseReason;
+	}
+}
