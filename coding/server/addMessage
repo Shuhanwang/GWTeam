@@ -1,0 +1,31 @@
+package common.message;
+
+import java.io.Serializable;
+
+public class addMessage implements Serializable
+{
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+	public String				myqqNum				= "";
+	public String				qq					= "";
+
+	public addMessage(String myqqNum, String qq)
+	{
+		super();
+		this.myqqNum = myqqNum;
+		this.qq = qq;
+	}
+
+	public addMessage()
+	{
+		super();
+	}
+
+	public addMessage(addMessage message)
+	{
+		this.myqqNum = message.myqqNum;
+		this.qq = message.qq;
+	}
+}
