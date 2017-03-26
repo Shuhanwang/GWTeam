@@ -57,7 +57,7 @@ public class clientTrans extends JFrame {
 	private Socket toClient;
 	private String desIp;
 	private int desPort;
-	private String myName;
+	String myName;
 	private int myPort;
 	private String tempName;
 
@@ -99,12 +99,12 @@ public class clientTrans extends JFrame {
 		panel.add(userList);
 
 		JLabel session = new JLabel("MESSAGES");
-		session.setBounds(106, 10, 100, 15);
+		session.setBounds(120, 10, 100, 15);
 		panel.add(session);
 
 		panel_1.setForeground(Color.BLACK);
 		panel_1.setBackground(Color.CYAN);
-		panel_1.setBounds(105, 35, 248, 287);
+		panel_1.setBounds(120, 35, 248, 287);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 
@@ -138,8 +138,14 @@ public class clientTrans extends JFrame {
 					return;
 				}
 				String mes = sendMes.getText().toString();
-				mes = mes + " " + myName;
+				String mes1 = sendMes.getText().toString();
+				DateFormat df = new SimpleDateFormat(
+						"yyyy-MM-dd HH:mm:ss");
+				Date d = new Date();
+				String date = df.format(d);
+				mes = mes + "#%" + myName;
 				sendMes.setText("");
+				rsgMes.append("ME: " + "(" + date + ")" + "\n" +  mes1 + "\n" );
 				try {
 					new ObjectOutputStream(toClient.getOutputStream())
 							.writeObject(mes);
@@ -148,7 +154,7 @@ public class clientTrans extends JFrame {
 				}
 			}
 		});
-		btnSend.setBounds(20, 242, 67, 23);
+		btnSend.setBounds(20, 242, 80, 23);
 		panel_1.add(btnSend);
 
 		JButton btnClear = new JButton("CLEAR");
@@ -158,7 +164,7 @@ public class clientTrans extends JFrame {
 				sendMes.setText("");
 			}
 		});
-		btnClear.setBounds(145, 242, 90, 23);
+		btnClear.setBounds(145, 242, 80, 23);
 		panel_1.add(btnClear);
 
 		JLabel fileTrans = new JLabel("FILE TRANSFER");
@@ -219,7 +225,7 @@ public class clientTrans extends JFrame {
 						// 传输文件名称和长度以及发送端用户名
 						new ObjectOutputStream(tempS.getOutputStream())
 								.writeObject(f.length());
-						dos.writeUTF(f.getName().toString());
+						dos.writeUTF(f.getName().toString());//写入磁盘文件数据
 						dos.writeUTF(myName);
 						// transmit
 						// 传输文件
@@ -229,6 +235,11 @@ public class clientTrans extends JFrame {
 							dos.write(sendBytes);
 							dos.flush();
 						}
+						DateFormat df = new SimpleDateFormat(
+								"yyyy-MM-dd HH:mm:ss");
+						Date d = new Date();
+						String date = df.format(d);
+						transFile.append(date + "\n" + "FILE HAS BEEN SENT SUCCESSFULLY" + "\n");
 
 						fis.close();
 						dos.close();
@@ -261,7 +272,7 @@ public class clientTrans extends JFrame {
 		// User list panel
 		// 用户列表panel
 		panel_3.setLayout(new GridLayout(10, 1));
-		panel_3.setBounds(20, 35, 75, 287);
+		panel_3.setBounds(20, 35, 90, 287);
 		panel.add(panel_3);
 
 		this.setVisible(true);
@@ -296,7 +307,7 @@ public class clientTrans extends JFrame {
 								public void actionPerformed(ActionEvent e) {
 									tempName = ((JButton) e.getSource())
 											.getText();
-									rsgMes.setText("");
+									//rsgMes.setText("");
 									rsgMes.append("START COMMUNICATION WITH " + tempName + "\n");
 									for (message m : loginList) {
 										if (m.getName().equals(tempName)) {
@@ -384,7 +395,7 @@ public class clientTrans extends JFrame {
 						Date d = new Date();
 						String date = df.format(d);
 						String str = (String) obj;
-						String[] getMes = str.split(" ");
+						String[] getMes = str.split("#%"); 
 						rsgMes.append("MESSAGE FROM " + getMes[1] + "\n" + "(" + date + ")" + "\n");
 						rsgMes.append(getMes[0] + "\n");
 					}
@@ -401,16 +412,19 @@ public class clientTrans extends JFrame {
 						byte[] readBytes = new byte[1024];
 						DataInputStream read = new DataInputStream(
 								s.getInputStream());
-						while (read.read(readBytes) > 0) {
-							fos.write(readBytes);
+						long lenReceived = 0;
+						while (lenReceived < len) {
+							int rcvn = read.read(readBytes);
+							lenReceived += rcvn;
+							fos.write(readBytes,0,rcvn);
 							fos.flush();
 						}
 						DateFormat df = new SimpleDateFormat(
 								"yyyy-MM-dd HH:mm:ss");
 						Date d = new Date();
 						String date = df.format(d);
-						transFile.append(date + " FILE FROM" + userName
-								+ "HAS BEEN SAVED IN E:\\" + "\n");
+						transFile.append(date + " FILE FROM " + userName
+								+ " HAS BEEN SAVED IN E:\\" + "\n");
 						read.close();
 						fos.close();
 						IOException e = new IOException("SSS");

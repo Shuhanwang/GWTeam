@@ -5,8 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,7 +30,7 @@ public class signin extends JFrame {
 
 		setTitle("HICHAT REGISTER");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(700, 380, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -41,24 +43,29 @@ public class signin extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		JLabel logo = new JLabel();
+		logo.setIcon(new ImageIcon("pic/logo.PNG"));
+		logo.setBounds(200,15,40,40);
+		panel.add(logo);
+		
 		JLabel userName = new JLabel("USERNAME");
 		userName.setBackground(Color.WHITE);
-		userName.setBounds(107, 40, 90, 30);
+		userName.setBounds(107, 70, 90, 30);
 		panel.add(userName);
 		JLabel passwd = new JLabel("PASSWORD");
 		passwd.setBackground(Color.WHITE);
-		passwd.setBounds(107, 80, 90, 30);
+		passwd.setBounds(107, 110, 90, 30);
 		panel.add(passwd);
 		
 		utf = new JTextField();
-		utf.setBounds(209, 40, 109, 30);
+		utf.setBounds(209, 70, 109, 30);
 		panel.add(utf);
-		utf.setColumns(10);
+		utf.setColumns(12);
 		
 		ptf = new JTextField();
-		ptf.setBounds(209, 80, 109, 30);
+		ptf.setBounds(209, 110, 109, 30);
 		panel.add(ptf);
-		ptf.setColumns(10);
+		ptf.setColumns(12);
 
 		//ADD A LISTENER FOR THE BUTTON, SEND A MESSAGE TO THE SERVER TO CHECK WHETHER IT COULD BE CONNECTED WHEN CLICK THE BUTTON
 		//给按钮添加监听器，当点击按钮时发送一个message消息给服务器端以便确认是否能够连接
@@ -79,7 +86,8 @@ public class signin extends JFrame {
 					login login = new login();
 				} catch (Exception e1) {
 					try {
-						conn.rollback();
+							conn.rollback();
+						JOptionPane.showMessageDialog(null, "THIS USERNAME IS EXISTED! PLEASE CHANGE ANOTHER ONE.");
 					} catch (SQLException e2) {
 						e2.printStackTrace();
 					}
@@ -93,7 +101,7 @@ public class signin extends JFrame {
 				}
 			}
 		});
-		btnOk.setBounds(107, 156, 100, 23);
+		btnOk.setBounds(107, 166, 100, 23);
 		panel.add(btnOk);
 		
 		JButton btnCancle = new JButton("CANCEL");
@@ -103,7 +111,7 @@ public class signin extends JFrame {
 				System.exit(0);
 			}
 		});
-		btnCancle.setBounds(242, 156, 100, 23);
+		btnCancle.setBounds(242, 166, 100, 23);
 		panel.add(btnCancle);
 		
 		this.setVisible(true);

@@ -206,3 +206,4 @@ public class server extends JFrame {
 		server s = new server();
 	}
 }
+
