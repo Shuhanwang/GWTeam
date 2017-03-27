@@ -38,7 +38,7 @@ public class login extends JFrame {
 	private static String myPass;
 	private Socket socket;
 	private JPanel contentPane;
-	private String localIp = "192.168.223.1";
+	private String localIp = "192.168.191.1";
 	private JTextField utf;
 	private JTextField ptf;
 	private Connection conn = null;

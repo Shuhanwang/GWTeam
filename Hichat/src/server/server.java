@@ -172,7 +172,12 @@ public class server extends JFrame {
 							t2.append("User "+socTolog.get(s).getName()+" logs out at "+date);
 							t2.append("\n");
 							socTolog.remove(s);
+							t1.setText("");
 							allocateMsg();
+							for(message m:loginList){
+								t1.append("Username: "+m.getName()+"\n");
+							}
+							
 						}
 					}
 				} catch (ClassNotFoundException e) {
