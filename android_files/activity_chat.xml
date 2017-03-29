@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/usrlist"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center_vertical"
+        android:background="#E6E6E6"
+        android:orientation="vertical"
+        >
+
+        <!-- <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User list"/>-->
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User List" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_toRightOf="@+id/usrlist"
+        android:orientation="vertical"
+        android:id = "@+id/chatPanel">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="session"/>
+
+        <TextView
+            android:id="@+id/chatBoard"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#2EFEF7"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/msg"
+            />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:id="@+id/sendbtn"
+            android:text="Send"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send file"/>
+
+        <TextView
+            android:id="@+id/fileBoard"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#FFBF00"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/filepath"
+            android:text="Current file："/>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+
+                android:id="@+id/selectfile"
+
+                android:text="Open file"/>
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:id="@+id/sendfile"
+
+                android:text="Send file"/>
+    </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+</LinearLayout>
